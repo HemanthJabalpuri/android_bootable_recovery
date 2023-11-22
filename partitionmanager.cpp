@@ -75,10 +75,6 @@
 #include "twrpRepacker.hpp"
 #include "adbbu/libtwadbbu.hpp"
 
-#ifdef TW_LOAD_VENDOR_MODULES
-#include "kernel_module_loader.hpp"
-#endif
-
 #ifdef TW_HAS_MTP
 #ifdef TW_HAS_LEGACY_MTP
 #include "mtp/legacy/mtp_MtpServer.hpp"
@@ -404,14 +400,9 @@ clear:
 			mapit->second.fstab_line = NULL;
 		}
 	}
-
-#ifdef TW_LOAD_VENDOR_MODULES
-	KernelModuleLoader::Load_Vendor_Modules();
-#endif
-
 	TWPartition* ven = PartitionManager.Find_Partition_By_Path("/vendor");
 	TWPartition* odm = PartitionManager.Find_Partition_By_Path("/odm");
-	if (recovery_mode && !parse_userdata) {
+	if (!parse_userdata) {
 		if (ven) ven->Mount(Display_Error);
 		if (odm) odm->Mount(Display_Error);
 

@@ -151,8 +151,6 @@
 #define TW_AUTO_REFLASHTWRP_VAR     "tw_auto_reflashtwrp"
 
 // BUILD PROPS
-#define TW_FASTBOOT_MODE_PROP         "ro.twrp.fastbootd"
-#define TW_MODULES_MOUNTED_PROP       "twrp.modules.loaded"     // property for successfully mounted modules
 #define TW_KEYMASTER_VERSION_PROP     "keymaster_ver"
 
 // Theme versioning
